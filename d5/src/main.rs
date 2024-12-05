@@ -1,5 +1,4 @@
 use std::io;
-use std::collections::HashMap;
 use regex::Regex;
 use string_builder::Builder;
 use rayon::prelude::*;
@@ -35,7 +34,6 @@ fn main() {
             break;
         }
         prints.push(input_line.trim().to_string());
-        //println!("{}", input_line);
     }
 
     let result = prints.par_iter().map(|x| check_order(x.to_string(), &regex)).collect::<Vec<Option<String>>>();
