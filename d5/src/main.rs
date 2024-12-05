@@ -57,7 +57,7 @@ fn main() {
 
     let result2 = prints.par_iter().map(|x| day_2(x.to_string(), &regex)).collect::<Vec<Option<String>>>();
 
-    let sum2 = result2.iter().filter_map(|x| {
+    let sum2 = result2.par_iter().filter_map(|x| {
         if let Some(ref s) = x {
             if day_2(s.to_string(), &regex).is_some() {
                 let mut s = s.to_string();
